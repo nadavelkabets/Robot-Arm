@@ -3,82 +3,91 @@ import odrive
 import time
 import math
 
-#need to fix - show error messages for user
+class Actuator:
+    def __init__(self, odrive_map, actuator_params):
+        #define actuator gear ratio
+        self.gear_ratio = actuator_params["gear_ratio"]
+        #add position and angle
 
-class actuator:
-    #create a list of actuators for ease of for loop
-    list = []
+        #define odrive axis port
+        if actuator_params["motor_num"] == 0:
+            self.axis = odrive_map[actuator_params["odrive_num"]].axis0
+        else:
+            self.axis = odrive_map[actuator_params["odrive_num"]].axis1
 
-    def __init__(self, odrive_unit, odrive_axis, gear_ratio):
-        actuator.odrive_unit = odrive_unit
-        actuator.odrive_axis = odrive_axis
-        actuator.gear_ratio = gear_ratio
-        actuator.list.append(actuator)
+        #set parameters for odrive axis
+        self.set_params(actuator_params)
 
     def check_state(self):
-        return getattr(self.odrive_unit, self.odrive_axis).current_state
+        return self.axis.current_state
 
     def request_state(self, state):
-        getattr(self.odrive_unit, self.odrive_axis).requested_state = state
+        self.axis.requested_state = state
 
-    class motor:
-        def __init__(self, pole_pairs, torque_constant, motor_type):
-            actuator.motor.pole_pairs = pole_pairs
-            actuator.motor.torque_constant = torque_constant
-            actuator.motor.motor_type = motor_type
-
-    class encoder:
-        def __init__(self, cpr):
-            actuator.encoder.cpr = cpr
-
-def connect():
-    #define odrive serial numbers, add more to the list as needed
-    odrive_serials = ["1234"]
-    odrv = []
-    for counter in range(len(odrive_serials)):
-        odrv.append(odrive.find_any(serial_number = odrive_serials[counter]))
-    print("Connected to all ODrives")
-    return odrv
+    def set_params(self, actuator_params):
+        self.axis.motor.config.current_lim = 25
+        self.axis.controller.config.vel_limit = 50
+        #self.axis.motor.pole_pairs = actuator_params["pole_pairs"]
+        #self.axis.motor.torque_constant = actuator_params["torque_constant"]
+        #self.axis.motor.config.motor_type = 0
+        #self.axis.encoder.config.cpr = actuator_params["cpr"]
 
 
-def initiate(odrv):
-    #actuator 0 parameters
-    actuator0 = actuator(odrive_unit = odrv[0], odrive_axis = "axis0", gear_ratio = 50)
-    actuator0.motor = actuator.motor(pole_pairs = 8, torque_constant = 5, motor_type = 0)
-    actuator0.encoder = actuator.encoder(cpr = 4000)
+#connect to odrive devices
+def connect_odrives(odrive_serials):
+    #map of odrive devices
+    odrive_map = []
+    for serial in odrive_serials:
+        odrive_map.append(odrive.find_any(serial_number = serial))
+        print("connected to odrive", serial)
+    return odrive_map
 
-    #actuator 1 parameters...
-    #actuator1 = actuator(odrive_unit = "odrv0", odrive_axis = "axis1", gear_ratio = 50)
-    #actuator1.motor = actuator.motor(pole_pairs = 8, torque_constant = 5, motor_type = 0)
-    #actuator1.encoder = actuator.encoder(cpr = 4000)
 
-def startup():
+#set odrive parameters for actuators - to add - command to set parameter in odrive
+def configure_actuators(odrive_map):
+    actuator_params = [
+        {
+            "odrive_num": 0,
+            "motor_num": 0,
+            "gear_ratio": 1,
+            "pole_pairs": 14,
+            "torque_constant": 0.026677420362830162,
+            "cpr": 16384
+        }
+    ]
+
+    actuator_map = []
+    for actuator in actuator_params:
+        actuator_map.append(Actuator(odrive_map, actuator))
+        print("actuator set")
+    return actuator_map
+
+def calibrate_actuators(actuator_map):
     #calibrate state number is 3
-    for actu in actuator.list:
-        actu.request_state(actu, state = 3)
-    time.sleep(0.5)
+    for actuator in actuator_map:
+        actuator.request_state(3)
 
     #checks if calibration is complete
-    for actu in actuator.list:
-        while actu.check_state(actu) != 1:
+    for actuator in actuator_map:
+        while actuator.check_state() != 1:
             time.sleep(0.1)
         #set the actuator to close loop control (state number 8)
-        actu.request_state(actu, state = 8)
+        actuator.request_state(8)
     print("calibration complete")
 
-def main():
-    print("Welcome to the super-duper robot arm controller")\
 
-    #connect to odrives
-    odrv = connect()
-    
+
+def main():
+    print("Welcome to the super-duper robot arm controller")
+    #list of odrive serial numbers by order of actuators
+    odrive_serials = ["53155462262832"]
+    odrive_map = connect_odrives(odrive_serials)
+
     #set parameters
-    initiate(odrv)
-    #set_param() set cpr... settings in odrive
+    actuator_map = configure_actuators(odrive_map)
 
     #startup and home all axis
-    startup()
-    #home() - function to home all axis (absolute encoder 0)
+    calibrate_actuators(actuator_map)   
     
 
 if __name__ == "__main__":
