@@ -1,4 +1,4 @@
-< ongoing project >
+< ongoing project > update hackaday strain wave robot actuator
 # Robotic Arm
 ### The purpose of this project is to create a 6-DOF robotic arm that is fast, accurate and sub $1000.
 This robotic arm will be designed after the [Universal Robotics UR5e](https://www.universal-robots.com/products/ur5-robot/). 
