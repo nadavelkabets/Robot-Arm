@@ -8,4 +8,6 @@ The robot will be built from ABS, Nylon, Carbon Fiber and Aluminum.
 
 
 ## Project log
+A test station was constructed to test components and software. 
+![Test station](https://github.com/nadavelkabets/Robot-Arm/blob/main/media/IMG_0316.jpg)
 Odrive documentation: https://docs.odriverobotics.com/v/0.5.4/fibre_types/com_odriverobotics_ODrive.html
