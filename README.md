@@ -8,6 +8,8 @@ The robot will be built from ABS, Nylon, Carbon Fiber and Aluminum.
 
 Actuator 2 and 3 will take the most ammount of load (probably around 50nm). They will probably use a powerful 80mm (diameter) brushless 100kv motor.
 
+The following materials will be considered for the strain wave reducer: ABS, nylon, nylon 12CF, TPU95A, iglide I180PF. The bearing ball cages might be manufactured using SLA. (Siraya tech mecha? Phrozen nylon-green?)
+
 ## Project log
 A test station was constructed to test components and software. 
 ![Test station](https://github.com/nadavelkabets/Robot-Arm/blob/main/media/IMG_0316.jpg)
