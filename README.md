@@ -1,16 +1,31 @@
-< ongoing project > update hackaday strain wave robot actuator
+< ongoing project >
 # Robotic Arm
-### The purpose of this project is to create a 6-DOF robotic arm that is fast, accurate and sub $1000.
-This robotic arm will be designed after the [Universal Robotics UR5e](https://www.universal-robots.com/products/ur5-robot/) and [Kuka LBR/AGILIUS](https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/kr-agilus). 
-The robot will have a reach of ~800mm and use 6 actuators with a diameter of ~80-100mm. Each actuator will include 2 encoders (motor and output), a BLDC outrunner motor, and an ambitious 3D printed strain wave reducer. The "Harmonic Drive" gearbox will use a reduction ratio of (1:30-1:50). I would like to attempt a back-drivable strain wave reducer but it is very hard.
-The robot will be powered by 3 ODrive FOC controllers runniing on 48V DC power. The robot will be controlled by a Raspberry Pi running linux, calculating the required inverse kinematics.
-The robot will be built from ABS, Nylon, Carbon Fiber and Aluminum.
+### Project goals and robot specs:
+- 6-DOF robotic arm that is fast and accurate (180 deg/s top speed, precision of 1mm or less)
+- Reach of 500-800mm
+- Payload capacity of 1-3kg
+- Custom actuator design with 2 absolute encoders (motor and output), a BLDC motor and a strain wave reducer (harmonic drive)
+- Calculating the inverse kinematics for the robot
 
-Actuator 2 and 3 will take the most ammount of load (probably around 50nm). They will probably use a powerful 80mm (diameter) brushless 100kv motor.
+#### TBD:
+- Custom 3D printed strain wave reducer with a gear ratio of 1:30-1:50 that is back drivable. The following materials will be considered for the strain wave reducer: ABS, nylon, nylon 12CF, TPU95A, iglide I180PF. The bearing ball cages might be manufactured using SLA. (Siraya tech mecha? Tenacious/Blue mix? Phrozen nylon-green?)
+- Custom FOC BLDC driver using ESP32, TMC6200 and SimpleFOC (First actuator prototype used an ODrive controller)
+- Custom absolute magnetic ring encoder with hollow shaft
+- Electromagnetic brake
 
-The following materials will be considered for the strain wave reducer: ABS, nylon, nylon 12CF, TPU95A, iglide I180PF. The bearing ball cages might be manufactured using SLA. (Siraya tech mecha? Tenacious/Blue mix? Phrozen nylon-green?)
+#### General design:
+This robotic arm will be designed after the [Universal Robotics UR5e](https://www.universal-robots.com/products/ur5-robot/) and [Kuka LBR/AGILIUS](https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/kr-agilus).
 
 ## Project log
+BLDC motors offer high torque, resolution and speed when driven by field oriented control in a closed loop system.
+Outrunner motor design is preferable as it has more torque in the same size. A gimbal motor will perform better because it is able to produce high torque with relatively low current.
+Strain wave reducers (Harmonic Drive) are expensive and complex, but offer extremely low backlash, backdrivability and high gear ratio in a small space (I found cheap harmonic drives on taobao).
+Back drivable reducers allow for torque measurement for cobot applications.
+
 A test station was constructed to test components and software. 
 ![Test station](https://github.com/nadavelkabets/Robot-Arm/blob/main/media/IMG_0316.jpg)
 Odrive documentation: https://docs.odriverobotics.com/v/0.5.4/fibre_types/com_odriverobotics_ODrive.html
+
+
+
+
