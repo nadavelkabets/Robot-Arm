@@ -1,7 +1,5 @@
-import numpy
 import odrive
 import time
-import math
 
 class Actuator:
     def __init__(self, odrive_map, actuator_params):
