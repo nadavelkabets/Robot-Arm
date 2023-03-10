@@ -3,10 +3,6 @@ import time
 
 class Actuator:
     def __init__(self, odrive_map, actuator_params):
-        #define actuator gear ratio
-        self.gear_ratio = actuator_params["gear_ratio"]
-        #add position and angle
-
         #define odrive axis port
         if actuator_params["motor_num"] == 0:
             self.axis = odrive_map[actuator_params["odrive_num"]].axis0
@@ -47,7 +43,6 @@ def configure_actuators(odrive_map):
         {
             "odrive_num": 0,
             "motor_num": 0,
-            "gear_ratio": 1,
             "pole_pairs": 14,
             "torque_constant": 0.026677420362830162,
             "cpr": 16384
