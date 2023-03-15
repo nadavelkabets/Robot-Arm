@@ -6,7 +6,7 @@
 - Payload capacity of 1-3kg
 - Custom actuator design with 2 absolute encoders (motor and output), a BLDC motor and a strain wave reducer (harmonic drive)
 - Custom FOC BLDC driver for each motor based on SimpleFOC or VESC firmware.
-- Calculating the inverse kinematics for the robot
+- Calculating the inverse kinematics for the robot (ROS - robot operating system?)
 
 #### TBD:
 - Custom 3D printed strain wave reducer with a gear ratio of 1:30-1:50 that is back drivable. The following materials will be considered for the strain wave reducer: ABS, nylon, nylon 12CF, TPU95A, iglide I180PF. The bearing ball cages might be manufactured using SLA. (Siraya tech mecha? Tenacious/Blue mix? Phrozen nylon-green?)
