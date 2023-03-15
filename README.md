@@ -5,11 +5,11 @@
 - Reach of 500-800mm
 - Payload capacity of 1-3kg
 - Custom actuator design with 2 absolute encoders (motor and output), a BLDC motor and a strain wave reducer (harmonic drive)
+- Custom FOC BLDC driver for each motor based on SimpleFOC or VESC firmware.
 - Calculating the inverse kinematics for the robot
 
 #### TBD:
 - Custom 3D printed strain wave reducer with a gear ratio of 1:30-1:50 that is back drivable. The following materials will be considered for the strain wave reducer: ABS, nylon, nylon 12CF, TPU95A, iglide I180PF. The bearing ball cages might be manufactured using SLA. (Siraya tech mecha? Tenacious/Blue mix? Phrozen nylon-green?)
-- Custom FOC BLDC driver using ESP32, TMC6200 and SimpleFOC (First actuator prototype used an ODrive controller)
 - Custom absolute magnetic ring encoder with hollow shaft
 - Electromagnetic brake
 
@@ -22,10 +22,6 @@ Outrunner motor design is preferable as it has more torque in the same size. A g
 Strain wave reducers (Harmonic Drive) are expensive and complex, but offer extremely low backlash, backdrivability and high gear ratio in a small space (I found cheap harmonic drives on taobao).
 Back drivable reducers allow for torque measurement for cobot applications.
 
-A test station was constructed to test components and software. 
+A test station was constructed to test components and software.
+Components: ODrive V3.6, AS5047P encoder and MAD 5010 310KV motor.
 ![Test station](https://github.com/nadavelkabets/Robot-Arm/blob/main/media/IMG_0316.jpg)
-Odrive documentation: https://docs.odriverobotics.com/v/0.5.4/fibre_types/com_odriverobotics_ODrive.html
-
-
-
-
