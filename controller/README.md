@@ -18,3 +18,4 @@ Open source schematics for reference:
 - Dagor ESP32 controller
 - TMC6200-BOB
 - ODrive V3.6
+- xESC2 mini
