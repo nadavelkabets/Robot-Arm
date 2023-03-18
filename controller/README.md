@@ -9,7 +9,8 @@
 Trinamic TMC6200 was chosen because it measures phase current in line using built in amplifiers. This approach is more percise than the low side current measurements in Texas Instruments DRV8323.
 
 ## Log:
-The first prototype is based on the TMC6200-BOB break out board. It will communicate via SPI with external ESP32 module.
+The first prototype is based on the TMC6200-EVAL evaluation board. It will communicate via SPI with external ESP32 module.
+The original design used Infineon BSC026N08NS5ATMA1 mosfets. I decided to go with Infineon IPB026N06NATMA1 instead. They are very similar, but this one is easier to solder.
 Once working I will design the STM32 based controller with integrated CAN communication.
 
 Optional - electromagnetic brake support. Round pcb board, double sided.
