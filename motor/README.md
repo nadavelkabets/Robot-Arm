@@ -10,3 +10,7 @@
 - As explained above, motors are thermally limited. The advantage of using lower KV motors is in the motor driver, which need to handle lower currents. There is no difference in torque.
 
 Thus, the physical size of the motor should be chosen according to the required torque, and the KV value should be as low as needed for the required operation speed to reduce the current in the motor driver.
+
+
+The MAD5010 motor is powerful, but consumes a lot of current to produce the required torque.
+I have currently chosen the T-Motor GL60 55KV motor, driven on 48V.
