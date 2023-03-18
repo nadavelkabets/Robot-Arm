@@ -17,6 +17,6 @@ Optional - electromagnetic brake support. Round pcb board, double sided.
 
 Open source schematics for reference:
 - Dagor ESP32 controller
-- TMC6200-BOB
+- TMC6200-EVAL
 - ODrive V3.6
 - xESC2 mini
