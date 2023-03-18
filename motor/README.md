@@ -9,4 +9,4 @@
 - Lower KV motors require less current for the same torque. BUT, lowering KV is done by winding more copper turns. In order for more turns to fit in the same motor, you are required to use thinner wires which have higher resistance and thus output more heat for the same current.
 - As explained above, motors are thermally limited. The advantage of using lower KV motors is in the motor driver, which need to handle lower currents. There is no difference in torque.
 
-Thus, the size of the motor should be chosen according to the required torque, and the KV value should be as low as needed for the required operation speed to reduce the current in the motor driver.
+Thus, the physical size of the motor should be chosen according to the required torque, and the KV value should be as low as needed for the required operation speed to reduce the current in the motor driver.
