@@ -1,6 +1,6 @@
 ## Specs:
 - Custome PCB - STM32 based BLDC motor controller, based on arduino framework and Simple FOC library
-- Built in motor driver: pre-driver IC (TI DRV8320 or TMC6100), 3 low side and 3 high side mosfets (Infineon?), in line current sensing shunts and amplifiers (TI INA240).
+- Built in motor driver: pre-driver IC (TI DRV8320), 3 low side and 3 high side mosfets (Infineon?), in line current sensing shunts and amplifiers (TI INA240).
 - Flexible communication (USB, SPI, I2C, CAN). CAN Bus transceiver built in.
 - 24/48V input, max 25A sustained current.
 - Integrated hall effect sensor (AS5600 or AS5047), additional input for external absolute encoder. 
