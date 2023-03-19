@@ -1,5 +1,6 @@
 ## Specs:
-- Custome PCB - STM32 based BLDC motor controller, with a 3 half-bridge driver IC Trinamic TMC6200.
+- Custome PCB - STM32 based BLDC motor controller, with a 3 half-bridge driver IC, 3 low side and 3 high side mosfets, in line current sensing shunts and amplifiers.
+- Trinamic TMC6200, TMC6100 or DRV8323R.
 - Running arduino framework with Simple FOC library or VESC.
 - Flexible communication (USB, SPI, I2C, CAN). CAN Bus transceiver built in.
 - 24/48V input, max 15A sustained current.
