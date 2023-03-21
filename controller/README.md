@@ -16,7 +16,7 @@
 | Max supply voltage | 60V | 60V | 60V |
 | Current sensing amplifier | Built in* | External | External |
 | Interface | Standalone and SPI | Standalone and SPI | SPI |
-| Voltage regulator | 12V switching for VSA, 3.3 LDO for amplifiers | 12V switching for VSA, 3.3 LDO for amplifiers | 3.3V LDO for amplifiers, built in switching for MCU |
+| Voltage regulator | 12V switching for VSA, 3.3V LDO for amplifiers | 12V switching for VSA, 3.3V LDO for amplifiers | 3.3V LDO for amplifiers, built in 3.3V switching for MCU |
 
 *Less accurate
 
