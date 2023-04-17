@@ -5,7 +5,7 @@ class Motor:
     def __init__(self, odrive, axis_num):
         #define odrive motor path
         axis_path = {
-        0: odrive.axis0
+        0: odrive.axis0,
         1: odrive.axis1
         }
         
