@@ -33,3 +33,5 @@ Open source schematics for reference:
 - TMC6200-EVAL
 - ODrive V3.6
 - xESC2 mini
+
+![Test station](https://github.com/nadavelkabets/Robot-Arm/blob/main/controller/SCR-20230510-wyj.png)
