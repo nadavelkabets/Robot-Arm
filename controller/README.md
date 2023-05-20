@@ -26,7 +26,7 @@ To slow down the motor, we need to reduce the voltage below the back EMF voltage
 ## Choosing a driver IC:
 
 | Feature  | TMC6200 | TMC6100 with 3x INA240 | DRV8320S with 3x INA240 | DRV8323S |
-| ------------- | ------------- | ------------- | ------------- |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
 | Max supply voltage | 60V | 60V | 60V | 60V |
 | Current sensing amplifier | Built in* | External | External | Internal (low side)* | 
 | Interface | Standalone and SPI | Standalone and SPI | SPI | SPI |
