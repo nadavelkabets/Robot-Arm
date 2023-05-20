@@ -25,19 +25,13 @@ To slow down the motor, we need to reduce the voltage below the back EMF voltage
 
 ## Choosing a driver IC:
 
-| Feature  | TMC6200 | TMC6100 with 3x INA240 | DRV8320S with 3x INA240 |
+| Feature  | TMC6200 | TMC6100 with 3x INA240 | DRV8320S with 3x INA240 | DRV8323S |
 | ------------- | ------------- | ------------- | ------------- |
-| Max supply voltage | 60V | 60V | 60V |
-| Current sensing amplifier | Built in* | External | External |
-| Interface | Standalone and SPI | Standalone and SPI | SPI |
-| Voltage regulator | External required: 12V switching for charge pump, 3.3V LDO for amplifiers | External required: 12V switching for charge pump, 3.3V LDO for amplifiers | External required: 3.3V LDO for amplifiers |
+| Max supply voltage | 60V | 60V | 60V | 60V |
+| Current sensing amplifier | Built in* | External | External | Internal (low side)* | 
+| Interface | Standalone and SPI | Standalone and SPI | SPI | SPI |
+| External voltage regulator | 12V switching for charge pump, 3.3V LDO for amplifiers | 12V switching for charge pump, 3.3V LDO for amplifiers | 3.3V switching | 3.3V switching |
 
 *Less accurate
-
-Open source schematics for reference:
-- Dagor ESP32 controller
-- TMC6200-EVAL
-- ODrive V3.6
-- xESC2 mini
 
 ![Test station](https://github.com/nadavelkabets/Robot-Arm/blob/main/controller/SCR-20230510-wyj.png)
