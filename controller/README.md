@@ -6,16 +6,22 @@ To slow down the motor, we need to reduce the voltage below the back EMF voltage
 
 !For the first 3 axis I am planning to use a GL60 motor with a 60mm circular PCB with embedded AS5047P sensor. For axis 4,5,6 I will use 3 stacked 50mm wide rectangle PCBs inside the arm tube, with external sensor PCB on the GL40 motors.
 
-## Specs:
-- Custome PCB - STM32 BLDC motor controller, based on arduino framework and Simple FOC library
-- Inline current sensing for all phases.
-- 24/48V input, max 25A sustained current.
-- Integrated hall effect sensor (AS5147), additional input for external absolute encoder. 
-- Temperature sensor for motor and board.
-- Flexible communication (USB, SPI, CAN). CAN Bus transceiver built in.
-- 3 low side and 3 high side Infineon BSC030N08NS5 MOSFETs.
-- Round PCB board with components on both sides.
-- Optional support for electromagnetic safety brake.
+## Specs (test board):
+- BLDC motor controller, based on arduino framework and Simple FOC library
+- STM32H725RGV6 STM32 microcontroller, 550 MHz
+- TMC6200 3 half-bridge gate driver with integrated current sense amplifier
+- Custome 4/6 layer PCB with dedicated power and ground planes
+- Double sided round PCB
+- Inline current sensing for all phases
+- 24/48V input, max 20A sustained current
+- Integrated hall effect sensor (AS5147)
+- USB and CAN communication
+- 3 low side and 3 high side MOSFETs.
+### To add (final board):
+- 2 latching 4 pin chained connectors for power and CAN
+- additional input for external absolute encoder
+- Temperature sensor for motor and board
+
 
 ## Choosing a driver IC:
 
