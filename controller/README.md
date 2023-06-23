@@ -35,7 +35,10 @@ For angle sensing I selected the AS5047P absolute encode. It is accurate and has
 
 ### Design notes:
 For the PCB design, I decided to go for a 4 layer signal - ground - power - signal PCB.
-
+Power supply requirements:
+12V for tmc6200
+3.3v for as5047p and others
+1.33v for stm vcap
 
 ### Prototype specs:
 - BLDC motor controller, based on arduino framework and Simple FOC library
