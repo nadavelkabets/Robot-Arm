@@ -26,14 +26,13 @@ To drive the MOSFETs, a gate-driver is required:
 | Current sensing amplifier | Internal in-line | External | External | Internal low-side | 
 | Interface | Standalone and SPI | Standalone and SPI | SPI | SPI |
 
-TMC6100 or DRV8320s, combined with the Texas Instruments INA240 current sense amp, will be the most accurate, but also complex and expensive. It is too overkill for my low current application.
-Most of the commerical driver boards utilize low-side current sensing. While being cheaper and easier to implement it is less accurate than in-line sensing and also not supported currently for the STM32 in Simple FOC.
+TMC6100 or DRV8320s combined with the TI INA240 current sense amp will be the most accurate, but also complex and expensive. It is too overkill for my low current application.
+Most commerical driver boards utilize low-side current sensing. While being cheaper and easier to implement, it is less accurate than in-line sensing and also not supported currently for the STM32 in Simple FOC.
 That leaves me with the TMC6200 from Trinamic.
 
+For angle sensing I selected the AS5047P absolute encode. It is accurate and has a fast SPI connection.
 
-!For the first 3 axis I am planning to use a GL60 motor with a 60mm circular PCB with embedded AS5047P sensor. For axis 4,5,6 I will use 3 stacked 50mm wide rectangle PCBs inside the arm tube, with external sensor PCB on the GL40 motors.
-
-## Specs (test board):
+## Prototype specs:
 - BLDC motor controller, based on arduino framework and Simple FOC library
 - STM32H725RGV6 STM32 microcontroller, 550 MHz
 - TMC6200 3 half-bridge gate driver with integrated current sense amplifier
@@ -44,12 +43,13 @@ That leaves me with the TMC6200 from Trinamic.
 - Integrated hall effect sensor (AS5147)
 - USB and CAN communication
 - 3 low side and 3 high side MOSFETs.
+  
+!For the first 3 axis I am planning to use a GL60 motor with a 60mm circular PCB with embedded AS5047P sensor. For axis 4,5,6 I will use 3 stacked 50mm wide rectangle PCBs inside the arm tube, with external sensor PCB on the GL40 motors.
+
+
 ### To add (final board):
-- 2 latching 4 pin chained connectors for power and CAN
-- additional input for external absolute encoder
+- 2 latching 4 pin connectors for chained power and CAN
+- Input for additional external absolute encoder
 - Temperature sensor for motor and board
-
-
-
 
 ![Test station](https://github.com/nadavelkabets/Robot-Arm/blob/main/controller/SCR-20230510-wyj.png)
