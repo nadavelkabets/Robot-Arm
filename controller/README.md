@@ -25,6 +25,7 @@ To drive the MOSFETs, a gate-driver is required:
 | Max supply voltage | 60V | 60V | 60V | 60V |
 | Current sensing amplifier | Internal in-line | External | External | Internal low-side | 
 | Interface | Standalone and SPI | Standalone and SPI | SPI | SPI |
+
 TMC6100 or DRV8320s, combined with the Texas Instruments INA240 current sense amp, will be the most accurate, but also complex and expensive. It is too overkill for my low current application.
 Most of the commerical driver boards utilize low-side current sensing. While being cheaper and easier to implement it is less accurate than in-line sensing and also not supported currently for the STM32 in Simple FOC.
 That leavs me with the TMC6200 from Trinamic. It is a relatively unknown chip from a reputable manufacturer.
