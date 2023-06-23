@@ -19,16 +19,15 @@ For a motor driver to handle reverse current, there are a few options. If the dr
 After some research, I landed on the Simple FOC library. The software is robust and can be easily modified to fit my needs, making it a solid base for the project.
 I selected the STM32H725RGV6 microcontroller. The STM32 H7 family provides great connectivity and relatively high compute power. This specific model is the smallest package avilable for the 550MHz variation - VFQFPN 68 8x8mm.
 
-To drive the MOSFETs, a gate-driver is required. I could design one myself, but tbh I'm already over my head with this project, and there are great commercial offerings.
-## Choosing a driver IC:
-
-| Feature  | TMC6200 | TMC6100 with 3x INA240 | DRV8320S with 3x INA240 | DRV8323S |
+To drive the MOSFETs, a gate-driver is required:
+| Feature  | TMC6200 | TMC6100 | DRV8320S | DRV8323S |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Max supply voltage | 60V | 60V | 60V | 60V |
 | Current sensing amplifier | Internal in-line | External | External | Internal low-side | 
 | Interface | Standalone and SPI | Standalone and SPI | SPI | SPI |
-
+TMC6100 or DRV8320s, combined with the Texas Instruments INA240 current sense amp, will be the most accurate, but also complex and expensive. It is too overkill for my low current application.
 Most of the commerical driver boards utilize low-side current sensing. While being cheaper and easier to implement it is less accurate than in-line sensing and also not supported currently for the STM32 in Simple FOC.
+That leavs me with the TMC6200 from Trinamic. It is a relatively unknown chip from a reputable manufacturer.
 
 
 !For the first 3 axis I am planning to use a GL60 motor with a 60mm circular PCB with embedded AS5047P sensor. For axis 4,5,6 I will use 3 stacked 50mm wide rectangle PCBs inside the arm tube, with external sensor PCB on the GL40 motors.
