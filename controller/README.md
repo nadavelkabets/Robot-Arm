@@ -32,11 +32,12 @@ That leaves me with the TMC6200 from Trinamic.
 
 For angle sensing I selected the AS5047P absolute encode. It is accurate and has a fast SPI connection.
 
+
 ### Design notes:
 For the PCB design, I decided to go for a 4 layer signal - ground - power - signal PCB.
 
 
-## Prototype specs:
+### Prototype specs:
 - BLDC motor controller, based on arduino framework and Simple FOC library
 - STM32H725RGV6 STM32 microcontroller, 550 MHz
 - TMC6200 3 half-bridge gate driver
