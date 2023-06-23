@@ -20,7 +20,7 @@ After some research, I landed on the Simple FOC library. The software is robust 
 I selected the STM32H725RGV6 microcontroller. The STM32 H7 family provides great connectivity and relatively high compute power. This specific model is the smallest package avilable for the 550MHz variation - VFQFPN 68 8x8mm.
 
 To drive the MOSFETs, a gate-driver is required:
-| Feature  | TMC6200 | TMC6100 | DRV8320S | DRV8323S |
+| Feature  | Trinamic TMC6200 | Trinamic TMC6100 | TI DRV8320S | TI DRV8323S |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Max supply voltage | 60V | 60V | 60V | 60V |
 | Current sensing amplifier | Internal in-line | External | External | Internal low-side | 
