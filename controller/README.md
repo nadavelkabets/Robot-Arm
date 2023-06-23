@@ -28,7 +28,7 @@ To drive the MOSFETs, a gate-driver is required:
 
 TMC6100 or DRV8320s, combined with the Texas Instruments INA240 current sense amp, will be the most accurate, but also complex and expensive. It is too overkill for my low current application.
 Most of the commerical driver boards utilize low-side current sensing. While being cheaper and easier to implement it is less accurate than in-line sensing and also not supported currently for the STM32 in Simple FOC.
-That leavs me with the TMC6200 from Trinamic. It is a relatively unknown chip from a reputable manufacturer.
+That leaves me with the TMC6200 from Trinamic.
 
 
 !For the first 3 axis I am planning to use a GL60 motor with a 60mm circular PCB with embedded AS5047P sensor. For axis 4,5,6 I will use 3 stacked 50mm wide rectangle PCBs inside the arm tube, with external sensor PCB on the GL40 motors.
