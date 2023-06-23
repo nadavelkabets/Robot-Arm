@@ -8,6 +8,17 @@ To slow down the motor, the phase voltage must be reduced below the "back EMF" v
 
 For a motor driver to handle reverse current, there are a few options. If the driver is powered by a battery, the battery can be recharged using the regenerative current produced by the motor. But, when the driver is powered by a power supply that can't handle the current, a resistor that dissipates the heat, or a capacitor that absorbs the current and converts it to a voltage spike must be implemented.
 
+## Initial requirements:
+- 10A continuous current (more than enough for the low kv gimbal motors I intend to use)
+- 24/48V operation
+- CAN and USB suppport
+- built in absolute encoder
+
+## Design decisions:
+After some research, I landed on the Simple FOC library. The software is robust and can be easily modified to fit my needs, making it a solid base for the project.
+I selected the STM32H725RGV6 microcontroller. The STM32 H7 family provides great connectivity and relatively high compute power. This specific model is the smallest package avilable for the 550MHz variation - VFQFPN 68 8x8mm.
+Most driver boards utilize low-side current sensing, which is cheaper and easier to implement. Unfortunately, it is 
+
 !For the first 3 axis I am planning to use a GL60 motor with a 60mm circular PCB with embedded AS5047P sensor. For axis 4,5,6 I will use 3 stacked 50mm wide rectangle PCBs inside the arm tube, with external sensor PCB on the GL40 motors.
 
 ## Specs (test board):
