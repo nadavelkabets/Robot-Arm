@@ -24,7 +24,7 @@ To drive the MOSFETs, a gate-driver is required. I could design one myself, but 
 
 | Feature  | TMC6200 | TMC6100 with 3x INA240 | DRV8320S with 3x INA240 | DRV8323S |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Max supply voltage | 60V |
+| Max supply voltage | 60V | 60V | 60V | 60V |
 | Current sensing amplifier | Internal in-line | External | External | Internal low-side | 
 | Interface | Standalone and SPI | Standalone and SPI | SPI | SPI |
 
