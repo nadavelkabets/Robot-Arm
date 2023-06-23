@@ -1,4 +1,4 @@
-## Quick introduction to BLDC driver design:
+# Quick introduction to BLDC driver design:
 A BLDC (brushless DC) motor consists of 3 phases. For accurate and efficient operation, it is best to implement FOC (field oriented control) in a closed loop sensored system. This way, the phase voltages are controlled precisely based on the angle of the motor.
 To operate a 3 phase motor, 3 half-bridges are used. A half-bridge design uses 2 MOSFETs, with a high side MOSFET connected to voltage supply and a low side MOSFET connected to ground. The two MOSFETs are connected to form a bridge. This way, by switching each side on and off, we can control the voltage on the bridge using PWM.
 As explained before, the speed of a BLDC motor is limited by voltage. The faster the motor spins, the more "back EMF" induced back in the coils. Once the "back EMF" voltage is equal to the supply voltage, the maximum speed is reached and the only way to accelerate more is to increase the voltage further.
@@ -8,14 +8,14 @@ To slow down the motor, the phase voltage must be reduced below the "back EMF" v
 
 For a motor driver to handle reverse current, there are a few options. If the driver is powered by a battery, the battery can be recharged using the regenerative current produced by the motor. But, when the driver is powered by a power supply that can't handle the current, a resistor that dissipates the heat, or a capacitor that absorbs the current and converts it to a voltage spike must be implemented.
 
-## Initial requirements:
+# Initial requirements:
 - FOC close loop motor driver
 - 10A continuous current (more than enough for the low kv gimbal motors I intend to use)
 - 24/48V operation
 - CAN and USB suppport
 - built in absolute encoder
 
-## Design decisions:
+# Prototype design:
 After some research, I landed on the Simple FOC library. The software is robust and can be easily modified to fit my needs, making it a solid base for the project.
 I selected the STM32H725RGV6 microcontroller. The STM32 H7 family provides great connectivity and relatively high compute power. This specific model is the smallest package avilable for the 550MHz variation - VFQFPN 68 8x8mm.
 
@@ -32,20 +32,23 @@ That leaves me with the TMC6200 from Trinamic.
 
 For angle sensing I selected the AS5047P absolute encode. It is accurate and has a fast SPI connection.
 
+## Design decisions:
+For the PCB design, I decided to go for a 4 layer signal - ground - power - signal PCB.
+
+
 ## Prototype specs:
 - BLDC motor controller, based on arduino framework and Simple FOC library
 - STM32H725RGV6 STM32 microcontroller, 550 MHz
-- TMC6200 3 half-bridge gate driver with integrated current sense amplifier
-- Custome 4/6 layer PCB with dedicated power and ground planes
+- TMC6200 3 half-bridge gate driver
+- Integrated in-line current sensing for all phases
+- Custome 4 layer PCB with dedicated power and ground planes
 - Double sided round PCB
-- Inline current sensing for all phases
-- 24/48V input, max 20A sustained current
-- Integrated hall effect sensor (AS5147)
+- 24/48V input, max 10A sustained current
+- Integrated hall effect sensor (AS5047)
 - USB and CAN communication
 - 3 low side and 3 high side MOSFETs.
   
 !For the first 3 axis I am planning to use a GL60 motor with a 60mm circular PCB with embedded AS5047P sensor. For axis 4,5,6 I will use 3 stacked 50mm wide rectangle PCBs inside the arm tube, with external sensor PCB on the GL40 motors.
-
 
 ### To add (final board):
 - 2 latching 4 pin connectors for chained power and CAN
